@@ -1,50 +1,16 @@
-# Prayer Cat · 礼拜喵 · Salah Cat · Namaz Cat
+# Prayer Cat · Namaz Cat · Salah Cat · 礼拜喵
 
 > A calm, intelligent desktop companion for prayer-time awareness, personal reflection, and everyday spiritual rhythm.
 >
+> Namaz ke auqaat, zaati soch aur rozmarrah roohani rhythm ke liye ek pur-sukoon aur samajhdar desktop saathi.
+>
+> رفيق مكتبي هادئ وذكي لمواقيت الصلاة والتأمل الشخصي والإيقاع الروحي اليومي.
+>
 > 一只陪你感知礼拜时间、记录思考，并温柔融入日常节奏的智能桌面伙伴。
 
-[中文](#中文) · [English](#english) · [العربية](#العربية) · [اردو](#اردو)
+[English](#english) · [Roman Urdu](#roman-urdu) · [العربية](#العربية) · [中文](#中文)
 
 [Download v2.3](https://github.com/kiki177/prayer-cat/releases/tag/v2.3) · [Feedback](https://github.com/kiki177/prayer-cat/issues)
-
----
-
-## 中文
-
-### 它是什么
-
-**礼拜喵**不是一个冷冰冰的时间工具，而是一只常驻 macOS 桌面的温柔伙伴。它把真实礼拜时间、轻量提醒、个人备忘和可选的 AI 对话整合进一个安静、亲切的桌面体验，让重要的时刻自然进入日常，而不是成为又一个需要反复打开的复杂应用。
-
-它适合希望在工作、学习与生活之间保持礼拜节奏，同时又重视隐私、专注感与情绪体验的用户。
-
-### 它能为你做什么
-
-- **感知真实礼拜时间**：根据你设置的城市、国家和计算方式更新当天礼拜时间；如果数据无法获取，应用不会用猜测时间代替。
-- **温柔提醒下一次礼拜**：桌面猫会显示下一次礼拜与当前状态，以陪伴式语言提醒，而不是制造焦虑。
-- **斋月模式**：为斋月期间提供更安静、更专注的使用氛围，让产品表达与节日节奏保持一致。
-- **本地备忘知识空间**：随手记录想法、学习内容、经文感悟或每日计划；内容保存在这台 Mac 上，并可直接打开本地文件夹管理。
-- **与礼拜喵对话**：用户可使用自己的 OpenAI API Key 开启 AI 对话，获得简洁、友好且尊重宗教边界的陪伴式交流。AI 不替代宗教学者，也不会虚构礼拜时间。
-- **有生命感的桌面角色**：礼拜喵会呈现不同状态、回应操作，也可选择跟随鼠标，让功能不再只是按钮与数字。
-
-### 为什么选择礼拜喵
-
-礼拜喵关注的不是“功能越多越好”，而是把有价值的功能放在正确的位置：礼拜时间需要准确，提醒需要克制，备忘需要私密，陪伴需要温度。它把这些体验收进一个轻量的 macOS 桌面角色中，减少界面负担，同时保留人与工具之间的情感连接。
-
-### 语言与命名
-
-- 中文：**礼拜喵**
-- English: **Prayer Cat**
-- العربية: **Salah Cat**
-- اردو: **Namaz Cat**
-
-应用支持中文、英文、阿拉伯语和乌尔都语界面。充值与礼包功能已经统一下线，核心体验聚焦于礼拜时间、斋月模式、桌面陪伴、备忘与知识空间。
-
-### 下载与安装
-
-前往 [GitHub Release v2.3](https://github.com/kiki177/prayer-cat/releases/tag/v2.3) 下载最新 macOS 安装包，解压后将应用拖入“应用程序”文件夹。
-
-当前版本为 App Store 准备版。正式进入 Apple App Store 仍需完成开发者签名、公证、隐私信息配置和 App Store Connect 审核。
 
 ---
 
@@ -84,6 +50,42 @@ Visit [GitHub Release v2.3](https://github.com/kiki177/prayer-cat/releases/tag/v
 
 This is an App Store-ready build. Public App Store distribution still requires Apple Developer signing, notarization, privacy configuration, and App Store Connect review.
 
+
+---
+
+## Roman Urdu
+
+### Yeh kya hai?
+
+**Namaz Cat** sirf namaz ke auqaat dikhane wala tool nahin, balki macOS desktop par rehne wala ek pur-sukoon aur samajhdar saathi hai. Yeh mustanad namaz ke auqaat, narm yaad-dihaniyan, zaati notes aur ikhtiyari AI guftagu ko ek saadah aur khushgawar tajurbe mein jama karta hai. Ek aur pecheeda app kholne ke bajaye, yeh kaam, taleem aur rozmarrah zindagi ke darmiyan aham lamhon ko nazar ke samne rakhta hai.
+
+Yeh un Muslim users ke liye banaya gaya hai jo namaz ke mamool ke saath privacy, tawajjoh aur jazbati sukoon ko bhi ahmiyat dete hain.
+
+### Yeh aap ke liye kya karta hai?
+
+- **Haqeeqi namaz ke auqaat:** Shehar, mulk aur calculation method ke mutabiq rozana auqaat update karta hai; bharosemand data na milne par andazay se waqt nahin banata.
+- **Agli namaz ki narm yaad-dihani:** Aanay wali namaz aur mojooda halat ko baghair dabao ke dostana andaaz mein dikhata hai.
+- **Ramadan Mode:** Ramadan ki raftaar se hum-ahang, zyada pur-sukoon aur markooz tajurba faraham karta hai.
+- **Private local knowledge space:** Khayalat, mutalea ke notes, rozana plans aur zaati taasurat save karein; tamam notes isi Mac par rehte hain aur local folder se manage kiye ja sakte hain.
+- **Ikhtiyari AI guftagu:** Apni OpenAI API Key ke zariye mukhtasar aur mohtaram guftagu karein. Namaz Cat deeni authority nahin, fatwa nahin deta aur namaz ke auqaat ijad nahin karta.
+- **Zinda desktop character:** Mukhtalif moods aur ikhtiyari cursor-following zaroori maloomat ko mechanical tool ke bajaye ek qareebi saathi jaisa banate hain.
+
+### Namaz Cat kyun?
+
+Is product ki bunyaad durustgi, narmi aur privacy par hai: namaz ke auqaat durust hon, yaad-dihaniyan narm hon, notes private rahen aur companionship pur-khuloos mehsoos ho. Yeh usool ek halkay, native macOS tajurbe mein kam visual shor aur zyada wazahat ke saath pesh kiye gaye hain.
+
+### Zabanain aur naam
+
+Chinese: **礼拜喵** · English: **Prayer Cat** · Arabic: **Salah Cat** · Roman Urdu: **Namaz Cat**
+
+Interface Chinese, English, Arabic aur Roman Urdu mein dastiyab hai. Recharge aur gift-package features hata diye gaye hain taa-ke tawajjoh namaz ke auqaat, Ramadan Mode, desktop companionship aur private notes par rahe.
+
+### Download aur installation
+
+[GitHub Release v2.3](https://github.com/kiki177/prayer-cat/releases/tag/v2.3) se latest macOS ZIP download karein, file unzip karein aur app ko Applications folder mein move karein.
+
+Yeh App Store-ready build hai. Rasmi App Store distribution ke liye Apple Developer signing, notarization, privacy setup aur App Store Connect review abhi bhi darkar hain.
+
 ---
 
 ## العربية
@@ -119,40 +121,45 @@ This is an App Store-ready build. Public App Store distribution still requires A
 
 هذا إصدار مُجهّز لمتجر App Store، ولا يزال النشر الرسمي يتطلب توقيع Apple Developer والتوثيق وإعداد الخصوصية ومراجعة App Store Connect.
 
+
 ---
 
-## اردو
+## 中文
 
-### یہ کیا ہے؟
+### 它是什么
 
-**Namaz Cat** صرف نماز کے اوقات دکھانے والا ٹول نہیں، بلکہ macOS ڈیسک ٹاپ پر رہنے والا ایک پُرسکون ساتھی ہے۔ یہ مستند نماز کے اوقات، نرم یاد دہانیوں، نجی نوٹس اور اختیاری AI گفتگو کو ایک سادہ اور خوشگوار تجربے میں یکجا کرتا ہے۔ ایک اور پیچیدہ ایپ کھولنے کے بجائے، یہ اہم لمحات کو آپ کے کام، مطالعے اور روزمرہ زندگی کے بہاؤ میں موجود رکھتا ہے۔
+**礼拜喵**不是一个冷冰冰的时间工具，而是一只常驻 macOS 桌面的温柔伙伴。它把真实礼拜时间、轻量提醒、个人备忘和可选的 AI 对话整合进一个安静、亲切的桌面体验，让重要的时刻自然进入日常，而不是成为又一个需要反复打开的复杂应用。
 
-یہ ان مسلمان صارفین کے لیے بنایا گیا ہے جو نماز کے معمول کے ساتھ رازداری، توجہ اور جذباتی سکون کو بھی اہمیت دیتے ہیں۔
+它适合希望在工作、学习与生活之间保持礼拜节奏，同时又重视隐私、专注感与情绪体验的用户。
 
-### یہ کیا کر سکتا ہے؟
+### 它能为你做什么
 
-- **حقیقی نماز کے اوقات:** شہر، ملک اور حساب کے طریقے کے مطابق روزانہ کے اوقات اپ ڈیٹ کرتا ہے؛ معتبر ڈیٹا نہ ملنے پر اندازے سے وقت نہیں بناتا۔
-- **اگلی نماز کی نرم یاد دہانی:** آنے والی نماز اور موجودہ حالت کو دباؤ کے بغیر دوستانہ انداز میں دکھاتا ہے۔
-- **رمضان موڈ:** رمضان کی رفتار سے ہم آہنگ زیادہ پُرسکون اور مرکوز تجربہ فراہم کرتا ہے۔
-- **نجی لوکل نالج اسپیس:** خیالات، مطالعے کے نوٹس، تاثرات اور روزانہ کے منصوبے محفوظ کریں؛ مواد اسی Mac پر رہتا ہے اور مقامی فولڈر سے منظم کیا جا سکتا ہے۔
-- **اختیاری AI گفتگو:** اپنے OpenAI API Key کے ذریعے مختصر اور بااحترام گفتگو کریں۔ Namaz Cat مذہبی اتھارٹی نہیں، فتوے نہیں دیتا اور نماز کے اوقات ایجاد نہیں کرتا۔
-- **زندہ ڈیسک ٹاپ کردار:** مختلف کیفیات اور اختیاری کرسر فالو کرنے کی خصوصیت ضروری معلومات کو زیادہ مانوس بناتی ہے۔
+- **感知真实礼拜时间**：根据你设置的城市、国家和计算方式更新当天礼拜时间；如果数据无法获取，应用不会用猜测时间代替。
+- **温柔提醒下一次礼拜**：桌面猫会显示下一次礼拜与当前状态，以陪伴式语言提醒，而不是制造焦虑。
+- **斋月模式**：为斋月期间提供更安静、更专注的使用氛围，让产品表达与节日节奏保持一致。
+- **本地备忘知识空间**：随手记录想法、学习内容、经文感悟或每日计划；内容保存在这台 Mac 上，并可直接打开本地文件夹管理。
+- **与礼拜喵对话**：用户可使用自己的 OpenAI API Key 开启 AI 对话，获得简洁、友好且尊重宗教边界的陪伴式交流。AI 不替代宗教学者，也不会虚构礼拜时间。
+- **有生命感的桌面角色**：礼拜喵会呈现不同状态、回应操作，也可选择跟随鼠标，让功能不再只是按钮与数字。
 
-### Namaz Cat کیوں؟
+### 为什么选择礼拜喵
 
-اس پروڈکٹ کی بنیاد درستگی، نرمی اور رازداری پر ہے: نماز کے اوقات درست، یاد دہانیاں نرم، نوٹس نجی اور ساتھ پُرخلوص ہونا چاہیے۔ یہ اصول ایک ہلکے، مقامی macOS تجربے میں کم بصری شور کے ساتھ پیش کیے گئے ہیں۔
+礼拜喵关注的不是“功能越多越好”，而是把有价值的功能放在正确的位置：礼拜时间需要准确，提醒需要克制，备忘需要私密，陪伴需要温度。它把这些体验收进一个轻量的 macOS 桌面角色中，减少界面负担，同时保留人与工具之间的情感连接。
 
-### زبانیں اور نام
+### 语言与命名
 
-چینی: **礼拜喵** · انگریزی: **Prayer Cat** · عربی: **Salah Cat** · اردو: **Namaz Cat**
+- 中文：**礼拜喵**
+- English: **Prayer Cat**
+- العربية: **Salah Cat**
+- اردو: **Namaz Cat**
 
-انٹرفیس چینی، انگریزی، عربی اور اردو میں دستیاب ہے۔ ری چارج اور گفٹ پیکیج کی خصوصیات ختم کر دی گئی ہیں تاکہ توجہ نماز کے اوقات، رمضان موڈ، ڈیسک ٹاپ ساتھی اور نجی نوٹس پر رہے۔
+应用支持中文、英文、阿拉伯语和乌尔都语界面。充值与礼包功能已经统一下线，核心体验聚焦于礼拜时间、斋月模式、桌面陪伴、备忘与知识空间。
 
-### ڈاؤن لوڈ اور انسٹالیشن
+### 下载与安装
 
-[GitHub Release v2.3](https://github.com/kiki177/prayer-cat/releases/tag/v2.3) سے تازہ ترین macOS ZIP ڈاؤن لوڈ کریں، فائل اَن زِپ کریں اور ایپ کو Applications فولڈر میں منتقل کریں۔
+前往 [GitHub Release v2.3](https://github.com/kiki177/prayer-cat/releases/tag/v2.3) 下载最新 macOS 安装包，解压后将应用拖入“应用程序”文件夹。
 
-یہ App Store کے لیے تیار ورژن ہے۔ باضابطہ اشاعت کے لیے Apple Developer سائننگ، نوٹرائزیشن، پرائیویسی سیٹ اپ اور App Store Connect جائزہ درکار ہے۔
+当前版本为 App Store 准备版。正式进入 Apple App Store 仍需完成开发者签名、公证、隐私信息配置和 App Store Connect 审核。
+
 
 ---
 
