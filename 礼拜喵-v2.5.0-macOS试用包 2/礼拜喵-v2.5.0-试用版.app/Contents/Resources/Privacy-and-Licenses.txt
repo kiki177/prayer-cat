@@ -1,0 +1,14 @@
+礼拜喵 2.5
+本地聊天和记忆仅保存在当前 macOS 用户的应用沙盒中，不上传。
+记忆默认关闭。开启后存储对话中的用户发言、礼拜交互观察和明确确认的偏好，可查看、修改和清除。备忘检索限于应用自身知识空间，不扫描电脑或 Apple Notes。
+模型文件首次经 HTTPS 从 Hugging Face 下载，带固定版本和 SHA-256 验证。免费是指不收模型调用费，设备资源、网络费用仍由用户承担。
+新闻按已选城市/国家/时区筛选，仅展示官方源原始标题、时间、链接。来源可能不涵盖本地时事，当天不足时不补旧闻。
+GOV.UK: Contains public sector information licensed under the Open Government Licence v3.0. https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+NASA: Informational headline attribution only. No endorsement implied. https://www.nasa.gov/nasa-brand-center/images-and-media/
+llama.cpp: MIT, 完整许可见 llama-LICENSE.txt。
+Qwen3: Apache-2.0, 完整许可见 Qwen-LICENSE.txt。
+参考交互设计：Mochi、Miru、Open-LLM-VTuber；未复制其代码、角色或付费素材。猫咪图片沿用用户提供的 2.4.1 源包；发行者需持有相应权利。
+隐私：联网获取礼拜时间时 AlAdhan 收到所选城市、国家和计算方法；查询清真寺时 Apple MapKit 处理搜索与经许可的位置。新闻网站和下载服务会收到通常的网络信息（如 IP 地址）。不含第三方分析或广告 SDK。
+
+Beehive New Zealand Government: Source acknowledged; original titles reproduced without alteration under its Crown-content permission. https://www.beehive.govt.nz/copyright
+内置轻量模型随应用包提供；进阶模型是可选下载。内置模型不能单独删除。
