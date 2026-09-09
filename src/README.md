@@ -1,11 +1,69 @@
-# macOS source · v2.4.1
+# 礼拜喵 macOS 2.5.0 — 本地陪伴迭代
 
-- `main.m`: application entry point and UI
-- `MosqueFeature.h`, `MosqueFeature.m`: MapKit mosque search, route opening, and opt-in reminders
-- `Info.plist`: application metadata
-- `AppStore.entitlements`: App Sandbox entitlements
-- `AppIcon.icns`, `AppIcon-master.png`, `AppIcon.iconset/`: application icon assets
+基于用户提供的 v2.4.1 Objective-C / AppKit 工程继续开发，不依赖网页版、Node.js、Ollama、用户账号或 API key。
 
-Build and signing require Xcode and an Apple Developer account.
+## 当前实现
 
-Nearby-mosque search uses Apple MapKit by default, so users do not need a Google API key. Google Places remains a future optional enhancement delivered through a developer-operated backend.
+- 原生桌面对话框：流式显示、停止回复、新对话、可调整窗口大小；默认轻量 Qwen3-0.6B 模型可随应用打包，安装后离线聊天。可选 Qwen3-1.7B 在应用内下载，显示进度、失败重试、取消及删除。模型清单固定到上游提交并校验 SHA-256。推理代码编译进应用，网络只下载模型数据，不下载执行代码。
+- 原 ChatGPT 网页入口、OpenAI API 设置和网络调用已移除。正式 bundle ID 升级时仅尝试删除旧钥匙串条目，不读取密钥。
+- 今日新闻：按所选城市、国家、时区筛选发布于当天的条目，优先本国官方源，城市标题匹配优先，最多三条；排除未来时间、旧闻、无日期和重复新闻。首次自动尝试标记保存在本机，退出重开不再次自动汇报。失败不会伪造或回填旧闻，用户可手动重试。后台跨午夜不会主动打扰，下次激活检查。
+- 桌面散步：独立透明猫窗口，看向鼠标、扑鼠标、奔跑、趴可读窗口边缘、睡觉、戳后生气、来回抚摸、间隔求摸、拖动。右键可直接触发行为，双击聊天。只读取公开窗口几何，不读取屏幕截图、窗口标题、剪贴板，不操作其他应用。无法读取窗口时停留在桌面边缘。支持减少动态效果和安静模式。
+- 本地记忆：用户启用后记录真实发生的礼拜喵内互动；未互动只说明观察范围，不能推断没有礼拜或正在工作。明确“记住：…”的信息成为长期事实；行为模式需至少三个不同日期的证据；临时疲惫不会成为永久标签。记忆可查看、编辑、清除。关闭记忆同时取消当前生成并清空会话上下文。
+- 备忘检索：仅检索应用自己的 KnowledgeSpace 内已保存 .md 文件，支持中文双字关键词、英文关键词、文件名出处、限定片段，不扫描整台电脑或 Apple Notes。原有备忘功能保留。
+
+## 新闻覆盖与许可
+
+`NewsSources.json` 是可审计的白名单。默认启用 GOV.UK（英国本国、英国外交部门的国际专题）、新西兰 Beehive、NASA。按原文标题、时间与链接展示，不复制图片或全文，不声称官方背书。
+
+**当前不是全球每个城市的完整热点聚合器。** 英国、新西兰以外通常进入全球专题资讯；NASA 是科学/航天资讯，英国外交新闻也不能代表完整全球新闻。标题保持原文，不做未经验证的机器摘要。重要性目前由来源、城市匹配与发布时间排序，不等于专业编辑精选。
+
+UN News 作为候选保留但默认禁用，其非商业条款不能等同于商店应用的再分发许可。BBC、NHK、CBC、CNA、新华社等未获确认的商用源没有默认启用。扩展来源必须先核验公开接口与再利用许可。来源条款见 `NewsSources.json`、`Privacy-and-Licenses.txt`。
+
+## 用户使用
+
+1. 解压试用包，打开 .app（macOS 13+；试用包只有本地临时签名，尚未公证/上架）。
+2. 设置城市、国家与礼拜计算方法。新闻时区从礼拜服务返回的所在地时区初始化，也可在陪伴设置手动更改。
+3. 点击“和我聊聊吧”，内置轻量模型可直接使用。更大模型可选下载，不影响轻量模型。
+4. 在“陪伴与模型设置”选择是否启用新闻与记忆。两者默认关闭。
+5. 菜单栏月亮图标或猫右键 →“到桌面散步”；桌面猫右键可回小窝、睡觉、扑鼠标、趴窗边。
+6. “关闭本次提醒”只关闭当前提醒，不禁用以后的礼拜提醒；每次提醒本来就不会连续重复。
+
+试用版 bundle ID 为 `com.yuqiqi.salahcat.preview`，与原正式应用数据隔离。不要把试用版的数据路径当成正式版路径。
+
+## 构建
+
+需要 macOS、Apple Command Line Tools / Xcode、CMake 3.22+、Python 3.11+（仅开发者构建使用，用户不需要）。
+
+GitHub 仓库的构建脚本会在依赖缺失时获取固定提交的 llama.cpp；需要 Git 和网络。完整源码 ZIP 已包含该依赖。
+
+```sh
+bash scripts/build.sh
+```
+
+脚本下载并校验约 639 MB 的官方 0.6B 模型，构建 arm64 / x86_64，再合并为 Universal 2。可以用 `CMAKE_BIN` 指定 CMake 路径，用 `SC_BUNDLED_MODEL_PATH` 指定已有模型，用 `SC_SIGN_IDENTITY` 指定证书。默认临时签名，输出 `build/release/礼拜喵-macOS-v2.5.0.zip`。
+
+```sh
+SC_BUNDLED_MODEL_PATH=/absolute/path/Qwen3-0.6B-Q8_0.gguf bash scripts/test.sh
+```
+
+使用 Xcode 的开发者也可 `cmake -S . -B build/xcode -G Xcode` 生成工程，再设置团队、正式签名和沙盒配置。商店提交前必须完成 `RELEASE-GATES.md`。不会在源码里预填虚假的开发者账号、联系地址或隐私政策网址。
+
+## 运行限制
+
+- 最低系统为 macOS 13；推荐至少 8 GB 内存。当前 CPU 推理用于兼容 Intel 与 Apple 芯片，回复速度与设备和上下文长度相关。没有声称覆盖所有硬件。
+- 0.6B 模型较小，表达/事实准确度有限。AI 回复不能作为宗教裁定或专业建议；更大模型质量仍须评估。
+- 旧版主体支持英/中/阿/乌尔都语；本次新增 UI 完整文案为中文、英文，阿语/乌尔都语新增界面回退英文，模型可使用对应语言回复。完整本地化仍需发布前完成。
+- 仅复用原素材的 idle / waving / running-left / running-right，加倾斜/跳跃变换和状态符号表示睡觉、生气等。不是 Mochi 那套完整手绘动画资产，发布前可补专用睡眠/生气/趴卧帧。
+- 记忆文件在本机沙盒内以 JSON 保存，并非应用级加密；只保存在当前 macOS 用户空间，不上传。日记最多 1,000 条/30 天，长期记忆最多 100 条。
+- 内置模型随应用存在，不可单独删除；可删除额外下载的模型。下载中断后可重试，但当前不是跨重启断点续传。
+
+## 代码位置
+
+- `main.m`：原应用、礼拜时间、备忘录与集成。
+- `CompanionUI.*`：对话、模型设置、记忆面板、每日播报控制。
+- `CompanionCore.*`：日期、国家别名、新闻解析/筛选、记忆/检索。
+- `LocalEngine.*`：嵌入式推理、模型下载和完整性验证。
+- `DesktopCat.*`：桌面状态机、鼠标互动与窗口边缘几何。
+- `vendor/llama.cpp`：固定版本上游源码，版本见 `vendor/llama-revision.txt`。
+
+参考 Mochi、Miru、Open-LLM-VTuber 的交互思路，未移植其 Python/Windows/Live2D/音频代码或第三方角色素材。Cursor 原型仅用于参考；没有修改 Cursor 项目。

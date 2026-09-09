@@ -1,185 +1,55 @@
-# Prayer Cat · Namaz Cat · Salah Cat · 礼拜喵
+# 礼拜喵 · Prayer Cat
 
-> A calm, intelligent desktop companion for prayer-time awareness, personal reflection, and everyday spiritual rhythm.
->
-> Namaz ke auqaat, zaati soch aur rozmarrah roohani rhythm ke liye ek pur-sukoon aur samajhdar desktop saathi.
->
-> رفيق مكتبي هادئ وذكي لمواقيت الصلاة والتأمل الشخصي والإيقاع الروحي اليومي.
->
-> 一只陪你感知礼拜时间、记录思考，并温柔融入日常节奏的智能桌面伙伴。
+原生 macOS 礼拜提醒与桌面猫陪伴应用。
 
-[English](#english) · [Roman Urdu](#roman-urdu) · [العربية](#العربية) · [中文](#中文)
+**v2.5.0 本地陪伴预览版**加入了无需 API key 的桌面聊天、每日新闻、桌宠动作，以及本地记忆和备忘检索。当前是可编译的工程预览版本，尚未完成正式 App Store 发布验收。
 
-[Download v2.4.1](https://github.com/kiki177/prayer-cat/releases/tag/v2.4.1) · [Feedback](https://github.com/kiki177/prayer-cat/issues)
+[详细更新日志](CHANGELOG.md) · [使用与构建](src/README.md) · [测试记录](docs/TEST-REPORT-v2.5.0.md) · [上架前清单](src/RELEASE-GATES.md) · [反馈](https://github.com/kiki177/prayer-cat/issues)
 
----
+## 本次更新
+
+| 模块 | v2.5.0 的变化 |
+| --- | --- |
+| 桌面聊天 | 原生消息气泡、逐步显示回复、取消、新对话；内置 Qwen3-0.6B 的试用包可离线聊天，支持可选 1.7B 模型 |
+| 移除旧云聊天 | 下架 ChatGPT 网页入口与 OpenAI API 设置、调用；普通用户无需账号或密钥 |
+| 每日新闻 | 启用后按所在地时区筛选当天新闻，最多三条，带日期和原文链接；当天退出重开不重复自动播报 |
+| 桌宠互动 | 看鼠标、扑跳、奔跑、窗边停留、睡觉、生气、抚摸、求摸、拖动与双击聊天 |
+| 本地记忆 | 区分当日事件与长期事实；支持明确记忆、重复模式归纳、查看编辑清除 |
+| 备忘检索 | 对话调用应用内 KnowledgeSpace 的相关 Markdown 片段，不扫描其他个人文件 |
+| 分发工程 | macOS 13 部署目标、Universal 2、沙盒、隐私清单、固定模型哈希与依赖版本 |
+
+礼拜时间、提醒、本地备忘和附近清真寺等原有功能继续保留。新闻与记忆默认关闭，由用户自行开启。
+
+## 使用范围与现状
+
+- **免费本地推理**：没有按次云端模型费用；用户无需 Ollama、Node.js 或 API key。运行仍受 Mac 内存、CPU 和模型能力限制。
+- **新闻覆盖有限**：当前包括英国、新西兰和国际专题来源，不能承诺每个国家/城市每天都有 2–3 条关键新闻；保留原文标题，不虚构摘要。
+- **动作素材仍需完善**：现有动作复用原图像序列和变换，并非一套新增完整手绘动画。
+- **记忆只反映可观察事件**：不监视其他应用，不把没有互动推断为没有礼拜或正在工作。
+- **发布状态**：预览包只有临时签名，未经正式签名/公证；新增界面尚未完整本地化。不要把本版宣传为已过审或可保证上架。
+
+## 开发者构建
+
+```sh
+git clone https://github.com/kiki177/prayer-cat.git
+cd prayer-cat/src
+bash scripts/build.sh
+```
+
+需要 macOS、Xcode / Command Line Tools、CMake 3.22+ 与 Python 3.11+。这些只用于开发构建，安装预览包的用户不需要。构建脚本下载并校验约 639 MB 的模型，生成包含本地模型的 Universal 2 应用。
+
+首次构建会通过 Git 获取固定提交的 llama.cpp。GitHub 自动源码包也可使用同一构建脚本；发布附件中的完整源码包已包含该依赖。
+
+## 文件与历史版本
+
+最新原生源码在 [`src/`](src/)，本次详细变化见 [`CHANGELOG.md`](CHANGELOG.md)。仓库根目录保留的 v2.3 / v2.4.1 ZIP 是历史文件，不代表 v2.5.0。旧版介绍可在 Git 历史中查看。
 
 ## English
 
-### What it is
+Prayer Cat is a native macOS prayer reminder and desktop companion. The v2.5.0 preview adds on-device text chat with Qwen3 and llama.cpp, opt-in daily news, desktop pet interactions, and editable local memories with retrieval from the app's own notes. ChatGPT links and OpenAI API integration have been removed. Bundled-model builds need no API key, account, Ollama or Node.js for end users.
 
-**Prayer Cat** is more than a prayer-time utility. It is a gentle macOS desktop companion that brings verified prayer times, considerate reminders, private notes, and optional AI conversation into one calm experience. Instead of asking you to manage another complicated app, it keeps meaningful moments visible within the natural rhythm of your day.
+This is a preview, not an App Store-approved release. News coverage, dedicated animation assets, full localization and hardware validation remain incomplete. Apple Silicon inference and cross-compilation for Intel were tested; Intel hardware and macOS 13 runtime validation are still required. New UI strings currently cover Chinese and English. See the linked release gates before distribution.
 
-It is designed for Muslim users who want to stay aware of prayer while working, studying, or creating—and who value privacy, focus, and emotional warmth in their software.
+## 许可与归属
 
-### What it does
-
-- **Real prayer-time awareness:** Updates daily timings using your city, country, and calculation method. If reliable data is unavailable, Prayer Cat will not invent a time.
-- **Gentle next-prayer reminders:** Shows the upcoming prayer and current status through calm, companion-like language rather than disruptive pressure.
-- **Ramadan Mode:** Creates a quieter, more focused experience whose tone fits the rhythm of Ramadan.
-- **Private local knowledge space:** Capture reflections, study notes, ideas, or daily plans. Notes remain on your Mac and can be managed from their local folder.
-- **Optional AI conversation:** Connect your own OpenAI API key for concise and respectful conversation. Prayer Cat is not a religious authority, does not issue rulings, and never fabricates prayer times.
-- **A living desktop character:** Responsive moods and optional cursor-following make essential information feel approachable rather than mechanical.
-- **Nearby mosques without setup:** Apple MapKit finds nearby mosques after location permission—no Google API key required. Open a selected route in Apple Maps and optionally receive a suggestion before prayer.
-
-### Why Prayer Cat
-
-Prayer Cat is built around restraint and care: prayer times should be accurate, reminders should be gentle, notes should remain private, and companionship should feel human. It turns these principles into a lightweight native macOS experience with less interface noise and more emotional clarity.
-
-### Languages and names
-
-- Chinese: **礼拜喵**
-- English: **Prayer Cat**
-- Arabic: **Salah Cat**
-- Urdu: **Namaz Cat**
-
-The interface supports Chinese, English, Arabic, and Urdu. Recharge and gift-package features have been removed so the product can focus on prayer awareness, Ramadan Mode, desktop companionship, and private notes.
-
-### Download and installation
-
-Visit [GitHub Release v2.4.1](https://github.com/kiki177/prayer-cat/releases/tag/v2.4.1), download the latest macOS ZIP, unzip it, and move the app to Applications.
-
-This is an App Store-ready build. Public App Store distribution still requires Apple Developer signing, notarization, privacy configuration, and App Store Connect review.
-
-
----
-
-## Roman Urdu
-
-### Yeh kya hai?
-
-**Namaz Cat** sirf namaz ke auqaat dikhane wala tool nahin, balki macOS desktop par rehne wala ek pur-sukoon aur samajhdar saathi hai. Yeh mustanad namaz ke auqaat, narm yaad-dihaniyan, zaati notes aur ikhtiyari AI guftagu ko ek saadah aur khushgawar tajurbe mein jama karta hai. Ek aur pecheeda app kholne ke bajaye, yeh kaam, taleem aur rozmarrah zindagi ke darmiyan aham lamhon ko nazar ke samne rakhta hai.
-
-Yeh un Muslim users ke liye banaya gaya hai jo namaz ke mamool ke saath privacy, tawajjoh aur jazbati sukoon ko bhi ahmiyat dete hain.
-
-### Yeh aap ke liye kya karta hai?
-
-- **Haqeeqi namaz ke auqaat:** Shehar, mulk aur calculation method ke mutabiq rozana auqaat update karta hai; bharosemand data na milne par andazay se waqt nahin banata.
-- **Agli namaz ki narm yaad-dihani:** Aanay wali namaz aur mojooda halat ko baghair dabao ke dostana andaaz mein dikhata hai.
-- **Ramadan Mode:** Ramadan ki raftaar se hum-ahang, zyada pur-sukoon aur markooz tajurba faraham karta hai.
-- **Private local knowledge space:** Khayalat, mutalea ke notes, rozana plans aur zaati taasurat save karein; tamam notes isi Mac par rehte hain aur local folder se manage kiye ja sakte hain.
-- **Ikhtiyari AI guftagu:** Apni OpenAI API Key ke zariye mukhtasar aur mohtaram guftagu karein. Namaz Cat deeni authority nahin, fatwa nahin deta aur namaz ke auqaat ijad nahin karta.
-- **Zinda desktop character:** Mukhtalif moods aur ikhtiyari cursor-following zaroori maloomat ko mechanical tool ke bajaye ek qareebi saathi jaisa banate hain.
-- **Qareebi masajid bina setup ke:** Location ki ijazat ke baad Apple MapKit qareebi masajid dhoondta hai; Google API key ki zaroorat nahin. Rasta Apple Maps mein kholein aur namaz se pehle ikhtiyari reminder paayen.
-
-### Namaz Cat kyun?
-
-Is product ki bunyaad durustgi, narmi aur privacy par hai: namaz ke auqaat durust hon, yaad-dihaniyan narm hon, notes private rahen aur companionship pur-khuloos mehsoos ho. Yeh usool ek halkay, native macOS tajurbe mein kam visual shor aur zyada wazahat ke saath pesh kiye gaye hain.
-
-### Zabanain aur naam
-
-Chinese: **礼拜喵** · English: **Prayer Cat** · Arabic: **Salah Cat** · Roman Urdu: **Namaz Cat**
-
-Interface Chinese, English, Arabic aur Roman Urdu mein dastiyab hai. Recharge aur gift-package features hata diye gaye hain taa-ke tawajjoh namaz ke auqaat, Ramadan Mode, desktop companionship aur private notes par rahe.
-
-### Download aur installation
-
-[GitHub Release v2.4.1](https://github.com/kiki177/prayer-cat/releases/tag/v2.4.1) se latest macOS ZIP download karein, file unzip karein aur app ko Applications folder mein move karein.
-
-Yeh App Store-ready build hai. Rasmi App Store distribution ke liye Apple Developer signing, notarization, privacy setup aur App Store Connect review abhi bhi darkar hain.
-
----
-
-## العربية
-
-### ما هو التطبيق؟
-
-**Salah Cat** ليس مجرد أداة لعرض مواقيت الصلاة، بل رفيق هادئ يعيش على سطح مكتب macOS. يجمع بين مواقيت الصلاة الموثوقة، والتنبيهات اللطيفة، والملاحظات الخاصة، والمحادثة الاختيارية بالذكاء الاصطناعي ضمن تجربة واحدة بسيطة ودافئة. وبدلاً من إضافة تطبيق معقد آخر إلى يومك، يحافظ على حضور اللحظات المهمة بصورة طبيعية أثناء العمل أو الدراسة.
-
-صُمم للمستخدم المسلم الذي يريد الحفاظ على إيقاع الصلاة مع تقدير الخصوصية والتركيز والراحة النفسية.
-
-### ماذا يقدم؟
-
-- **مواقيت صلاة حقيقية:** يحدّث مواقيت اليوم حسب المدينة والدولة وطريقة الحساب، ولا يعرض أوقاتاً تخمينية عندما تتعذر البيانات الموثوقة.
-- **تذكير لطيف بالصلاة القادمة:** يعرض الصلاة التالية والحالة الحالية بلغة هادئة وغير ضاغطة.
-- **وضع رمضان:** تجربة أكثر هدوءاً وتركيزاً تنسجم في أسلوبها مع إيقاع شهر رمضان.
-- **مساحة معرفة محلية وخاصة:** دوّن التأملات والملاحظات والأفكار والخطط اليومية؛ تبقى البيانات محفوظة على جهاز Mac ويمكن فتح مجلدها المحلي مباشرة.
-- **محادثة اختيارية بالذكاء الاصطناعي:** استخدم مفتاح OpenAI API الخاص بك لمحادثة موجزة ومحترمة. التطبيق ليس مرجعاً دينياً، ولا يصدر فتاوى، ولا يختلق مواقيت الصلاة.
-- **شخصية مكتبية حية:** حالات تفاعلية وخيار تتبع المؤشر يجعلان المعلومات الأساسية أقرب وأكثر إنسانية.
-- **مساجد قريبة بلا إعداد معقد:** يبحث Apple MapKit عن المساجد القريبة بعد إذن الموقع، دون الحاجة إلى مفتاح Google API، مع فتح المسار في خرائط Apple وتنبيه اختياري قبل الصلاة.
-
-### لماذا Salah Cat؟
-
-يقوم المنتج على الدقة والهدوء والخصوصية: يجب أن تكون المواقيت صحيحة، والتنبيهات لطيفة، والملاحظات خاصة، والرفقة دافئة. ويحوّل هذه المبادئ إلى تجربة macOS خفيفة بأقل قدر من التشويش البصري.
-
-### اللغات والأسماء
-
-الصينية: **礼拜喵** · الإنجليزية: **Prayer Cat** · العربية: **Salah Cat** · الأردية: **Namaz Cat**
-
-تتوفر الواجهة بالصينية والإنجليزية والعربية والأردية. تم إيقاف الشحن وباقات الهدايا للتركيز على مواقيت الصلاة ووضع رمضان والرفيق المكتبي والملاحظات الخاصة.
-
-### التنزيل والتثبيت
-
-انتقل إلى [GitHub Release v2.4.1](https://github.com/kiki177/prayer-cat/releases/tag/v2.4.1)، ونزّل ملف macOS ZIP، ثم فك الضغط وانقل التطبيق إلى مجلد Applications.
-
-هذا إصدار مُجهّز لمتجر App Store، ولا يزال النشر الرسمي يتطلب توقيع Apple Developer والتوثيق وإعداد الخصوصية ومراجعة App Store Connect.
-
-
----
-
-## 中文
-
-### 它是什么
-
-**礼拜喵**不是一个冷冰冰的时间工具，而是一只常驻 macOS 桌面的温柔伙伴。它把真实礼拜时间、轻量提醒、个人备忘和可选的 AI 对话整合进一个安静、亲切的桌面体验，让重要的时刻自然进入日常，而不是成为又一个需要反复打开的复杂应用。
-
-它适合希望在工作、学习与生活之间保持礼拜节奏，同时又重视隐私、专注感与情绪体验的用户。
-
-### 它能为你做什么
-
-- **感知真实礼拜时间**：根据你设置的城市、国家和计算方式更新当天礼拜时间；如果数据无法获取，应用不会用猜测时间代替。
-- **温柔提醒下一次礼拜**：桌面猫会显示下一次礼拜与当前状态，以陪伴式语言提醒，而不是制造焦虑。
-- **斋月模式**：为斋月期间提供更安静、更专注的使用氛围，让产品表达与节日节奏保持一致。
-- **本地备忘知识空间**：随手记录想法、学习内容、经文感悟或每日计划；内容保存在这台 Mac 上，并可直接打开本地文件夹管理。
-- **与礼拜喵对话**：用户可使用自己的 OpenAI API Key 开启 AI 对话，获得简洁、友好且尊重宗教边界的陪伴式交流。AI 不替代宗教学者，也不会虚构礼拜时间。
-- **有生命感的桌面角色**：礼拜喵会呈现不同状态、回应操作，也可选择跟随鼠标，让功能不再只是按钮与数字。
-- **无需配置的附近清真寺**：授权定位后直接通过 Apple MapKit 搜索，不需要填写 Google API 密钥；可打开 Apple Maps 路线，并主动开启礼拜前提醒。
-
-### 为什么选择礼拜喵
-
-礼拜喵关注的不是“功能越多越好”，而是把有价值的功能放在正确的位置：礼拜时间需要准确，提醒需要克制，备忘需要私密，陪伴需要温度。它把这些体验收进一个轻量的 macOS 桌面角色中，减少界面负担，同时保留人与工具之间的情感连接。
-
-### 语言与命名
-
-- 中文：**礼拜喵**
-- English: **Prayer Cat**
-- العربية: **Salah Cat**
-- اردو: **Namaz Cat**
-
-应用支持中文、英文、阿拉伯语和乌尔都语界面。充值与礼包功能已经统一下线，核心体验聚焦于礼拜时间、斋月模式、桌面陪伴、备忘与知识空间。
-
-### 下载与安装
-
-前往 [GitHub Release v2.4.1](https://github.com/kiki177/prayer-cat/releases/tag/v2.4.1) 下载最新 macOS 安装包，解压后将应用拖入“应用程序”文件夹。
-
-当前版本为 App Store 准备版。正式进入 Apple App Store 仍需完成开发者签名、公证、隐私信息配置和 App Store Connect 审核。
-
-
----
-
-## Privacy & Trust
-
-- Notes are stored locally on the user’s Mac.
-- AI chat is optional and requires the user’s own OpenAI API key.
-- Prayer Cat does not present itself as a religious authority.
-- Prayer-time failures are shown honestly; the app does not substitute invented timings.
-- Nearby-mosque search uses Apple MapKit only after user action or opt-in reminders; precise location history is not stored.
-- Recharge and gift-package functionality is not included.
-
-## Feedback
-
-Questions, ideas, and bug reports are welcome through [GitHub Issues](https://github.com/kiki177/prayer-cat/issues).
-
-## Latest Release
-
-[Download Prayer Cat macOS v2.4.1 — MapKit Nearby Mosques](https://github.com/kiki177/prayer-cat/releases/tag/v2.4.1)
+llama.cpp、Qwen 模型与新闻来源的说明见 [`src/Privacy-and-Licenses.txt`](src/Privacy-and-Licenses.txt)。各上游许可证按其各自范围适用，不代表整个应用及角色素材被自动授予相同许可。发行者仍需确认原有素材与目标市场的新闻使用权。

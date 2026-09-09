@@ -1,0 +1,51 @@
+[
+  {
+    "name": "GOV.UK",
+    "url": "https://www.gov.uk/search/news-and-communications.atom",
+    "scope": "national",
+    "countries": [
+      "GB"
+    ],
+    "license": "Open Government Licence v3.0",
+    "terms": "https://www.gov.uk/help/terms-conditions",
+    "enabled": true
+  },
+  {
+    "name": "Beehive · New Zealand Government",
+    "url": "https://www.beehive.govt.nz/rss.xml",
+    "scope": "national",
+    "countries": [
+      "NZ"
+    ],
+    "license": "NZ Crown reproduction permission; accurate text and source credit",
+    "terms": "https://www.beehive.govt.nz/copyright",
+    "enabled": true
+  },
+  {
+    "name": "GOV.UK · World affairs",
+    "url": "https://www.gov.uk/search/news-and-communications.atom?organisations%5B%5D=foreign-commonwealth-development-office",
+    "scope": "global",
+    "countries": [],
+    "license": "Open Government Licence v3.0",
+    "terms": "https://www.gov.uk/help/terms-conditions",
+    "enabled": true
+  },
+  {
+    "name": "NASA",
+    "url": "https://www.nasa.gov/news-release/feed/",
+    "scope": "global",
+    "countries": [],
+    "license": "NASA factual informational use; text headlines only, no endorsement",
+    "terms": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "enabled": true
+  },
+  {
+    "name": "UN News",
+    "url": "https://news.un.org/en/rss.xml",
+    "scope": "global",
+    "countries": [],
+    "license": "Permission required for commercial redistribution",
+    "terms": "https://www.un.org/en/about-us/terms-of-use",
+    "enabled": false
+  }
+]
